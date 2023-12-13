@@ -7,10 +7,11 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       userId: {
-        type: Sequelize.BIGINT
+        type: Sequelize.BIGINT,
+        
       },
       postid: {
         type: Sequelize.BIGINT

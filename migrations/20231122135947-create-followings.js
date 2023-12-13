@@ -11,6 +11,7 @@ module.exports = {
       },
      
       followerId: {
+        
         type: Sequelize.BIGINT
       },
       followingId: {
