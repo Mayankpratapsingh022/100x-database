@@ -15,23 +15,23 @@ module.exports = (sequelize, DataTypes) => {
   }
   Users.init({
     id: {
-      allowNull: false,
+      allowNull: true,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.BIGINT
     },
     username: {
-      allowNull: false,
+      allowNull: true,
       unique: true,
       type: DataTypes.STRING(50)
       
     },
     displayName: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.STRING(50)
     },
     email: {
-      allowNull: false,
+      allowNull: true,
       unique: true,
       type: DataTypes.STRING(120)
     },
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100)
     },
     bio: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.TEXT(200)
     },
     webiste: {
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(100)
     },
     dateOfBirth: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.DATE,
       validate: {
         isAbove13(value) {
@@ -63,18 +63,18 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     createdAt: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.DATE,
       defaultValue:DataTypes.NOW
 
     },
     updatedAt: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.DATE,
       defaultValue:DataTypes.NOW
     },
     password: {
-      allowNull: false,
+      allowNull: true,
       type: DataTypes.STRING(256)
     },
     profilePicUrl: {

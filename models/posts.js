@@ -1,7 +1,7 @@
 "use strict";
 
 const user = require("./users");
-const { Model } = require("sequelize");
+const { Model,DataTypes } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Posts extends Model {
     /**
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   Posts.init(
     {
       id: {
-        allowNull: false,
+        allowNull: true,
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.BIGINT
@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.ENUM,
         values: ["repost", "post", "reply"],
         defaultValue: "post",
-        allowNull: false,
+        allowNull: true,
       },
       referenceId: {
         type: DataTypes.BIGINT,
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       userId: {
         type: DataTypes.BIGINT,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: user,
           key: "id",
@@ -42,7 +42,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       content: {
         type: DataTypes.STRING(280),
-        allowNull: false,
+        allowNull: true,
       },
       postedAt: {
         type: DataTypes.DATE,
@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       createdAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
-        allowNull: false,
+        allowNull: true,
       },
       deletedAt: {
         type: DataTypes.DATE,
